@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>JSONP-DouBanAPI-bookSearch</title>
+        <style>
+            #search{
+                width:300px;
+                height: 30px;
+                padding: 5px;
+                border: 1px solid #f90;
+                font-size: 16px;
+            }
+            #searchBtn{
+                width:40px;
+                height:40px;
+                padding:5px;
+
+            }
+            dl{
+                border-bottom: 1px dotted #000 ;
+
+            }
+            dt{
+                font-weight: bold;
+            }
+        </style>
+        <script>
+        function searchBook(data) {
+            //处理数据
+            console.log(data);
+            var oMsg= document.getElementById("msg");
+            var oList = document.getElementById("resultList");
+
+            oMsg.innerHTML = "搜索结果有："+data.total+"条";
+            var html="";
+            for(var i=0;i<data.count;i++){
+                html+='<dl><dt>'+data.books[i].title+'</dt><dd><img src="'+data.books[i].image+'"></dd></dl>';
+            }
+            oList.innerHTML=html;
+
+
+        }
+
+        window.onload=function(){
+            var oSearch= document.getElementById("search");
+            var oSearchBtn =document.getElementById("searchBtn");
+            oSearchBtn.onclick=function () {
+                if(oSearch.value!=""){
+
+                    var oScript=document.createElement("script");
+                    oScript.src="https://api.douban.com/v2/book/search?q="+oSearch.value+"&alt=xd&callback=searchBook";
+                    document.body.appendChild(oScript);
+                }
+            }
+        }
+
+        </script>
+    </head>
+    <body>
+        <input type="text" id="search" />
+        <input type="button" value="搜索" id="searchBtn"/>
+        <p id="msg"></p>
+        <hr />
+        <div id="resultList">
+            <dl>
+                <dt></dt>
+                <dd><img src="" alt="" /></dd>
+            </dl>
+        </div>
+
+    </body>
+</html>
