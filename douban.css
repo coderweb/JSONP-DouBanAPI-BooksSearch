@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.search-container {
+    margin: 10px auto;
+    width: 960px;
+}
+
+.search-container .search-list {
+    height: 30px;
+    margin-bottom: 2px;
+}
+
+.search-list ul {
+    list-style: none;
+    /*width: 60px;
+    /*text-align: center;*/
+    /*border:1px solid #ccc;
+    border-bottom: none;*/
+}
+
+.search-list ul li {
+    display: block;
+    float: left;
+    margin: 3px;
+    width: 45px;
+    height: 29px;
+    text-align: center;
+    line-height: 29px;
+    color: #2D963D;
+    cursor: pointer;
+}
+
+.search-list ul li:hover {
+    background: #90ee90;
+}
+
+.search-list ul li.active {
+    background: #2D963D;
+    color: white;
+}
+
+.search-container .search-pannel {
+    background: #2D963D;
+    height: 37px;
+    width: 340px;
+    padding: 2px;
+}
+
+.search-pannel form {
+    width: 340px;
+    height: 36px;
+}
+
+.search-pannel form .search-text {
+    float: left;
+    width: 300px;
+    height: 35px;
+    outline: none;
+    border: 1px solid #ccc;
+}
+
+.search-pannel form .search-btn {
+    float: left;
+    width: 37px;
+    height: 37px;
+    border: 0;
+    border-left: 1px solid #2D963D;
+    cursor: pointer;
+    background: url(bn_srh_1.png) no-repeat center;
+}
